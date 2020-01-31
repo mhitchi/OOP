@@ -1,1 +1,2 @@
-[object Object]undefinedundefined, undefined, undefined, undefined, undefinedbeep, 1, Manager, undefined, boop@email
+[object Object]undefinedundefined, undefined, undefined, undefined, undefinedbeep, 1, Manager, undefined, boop@emailvoltron, voltron@voltron.com, Manager, 1, 123
+Mr. Pickles, mrpick@picks.com, Manager, 1, 123

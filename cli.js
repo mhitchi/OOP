@@ -64,7 +64,7 @@ const makeMan = (name, role, id, email, officeNum) => {
 }
 // writeFile();
 const writeMan = (newMan) => {
-  fs.appendFile("team.txt", (`${newMan.name}, ${newMan.role}, ${newMan.id}, ${newMan.email}, ${newMan.officeNum}`), (err) => {
+  fs.appendFile("team.txt", (`\r\n${newMan.name}, ${newMan.role}, ${newMan.id}, ${newMan.email}, ${newMan.officeNum}\r\n`), (err) => {
     if(err) {
       console.log("Error with writing file");
     }
