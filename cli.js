@@ -102,52 +102,57 @@ const getEmployee = () => {
     count++;
     let id = count;
 
-    //get info based on role
-    //get info based on role
-    const getRoleInfo = (infoType) => {
-      inquirer.prompt(
-        {
-        type:"input",
-        message: `Enter your ${infoType}`,
-        name: "roleInfo"
-        },
-        //ask if they're done building the team yet
-        //TODO not asking
-        {
-          type: "list",
-          message: "Are you finished?",
-          name: "finished",
-          choices: [
-            "Yes",
-            "No"
-          ]
-        }).then((response) => {
-          let roleInfo = response.roleInfo;
+    getRoleInfo(name, role, email, id);
 
-          console.log (name, role, id, roleInfo);
+  });
 
-          if( response.finished == "No" ) {
-            getEmployee();
-          } else {
-            console.log("Checkout your team in team.txt");
-          }
-        });
-      };
+  //get info based on role
+  //get info based on role
+  const getRoleInfo = (name, role, email, id) => {
+    switch(role) {
+      case "engineer":
+        ask("Github url");
+        break;
+      case "intern":
+        ask("school");
+        break;
+    }
+  }
 
-      //based on role, ask for role info: school, github, office number
-      switch(role) {
-        case "engineer":
-          getRoleInfo("GitHub username");
-          break;
-        case "intern":
-          getRoleInfo("school name");
-          break;
-      }
+  //engineer or intern inquirer questions
+  const ask = (infoType) => {
+    inquirer.prompt(
+      {
+      type:"input",
+      message: `Enter your ${infoType}: `,
+      name: "roleInfo"
+      }).then((response) => {
+        let roleInfo = response.roleInfo;
+        //TODO add shit to txt file
+
+        //console.log (name, role, id, email, roleInfo);
+        askIfDone();
+    });
+  }
+
+    //ask if they're done building the team yet
+      //TODO not asking
+  const askIfDone = () => {
+    inquirer.prompt(
+      {
+        type: "list",
+        message: "Are you finished?",
+        name: "finished",
+        choices: [
+          "Yes",
+          "No"
+        ]
+      });
+  }
 
 
     //make employee or intern
-    //switch
-  });
+
 }
 
 // start program and get Manager information
