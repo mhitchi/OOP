@@ -58,19 +58,24 @@ const makeMan = (name, role, id, email, officeNum) => {
 
   console.log(newMan.name, newMan.role, newMan.id, newMan.email, newMan.officeNum)
 
-  writeMan(newMan);
-}
-// writeFile();
-//TODO STOPPED WORKING
-const writeMan = (newMan) => {
-  fs.appendFile("team.txt", (`\r\n${newMan.name}, ${newMan.role}, ${newMan.id}, ${newMan.email}, ${newMan.officeNum}\r\n`), (err) => {
-    if(err) {
-      console.log("Error with writing file");
-    }
-  });
+  //writeMan(newMan);
+  //call writeFile function from manager class
+  newMan.writeToFile()
 
   getEmployee();
 }
+// writeFile();
+//TODO STOPPED WORKING
+//const writeMan = (newMan) => {
+  // console.log("writeMan: " + newMan.name);
+  // fs.appendFile("team.txt", (`\r\n${newMan.name}, ${newMan.role}, ${newMan.id}, ${newMan.email}, ${newMan.officeNum}\r\n`), (err) => {
+  //   if(err) {
+  //     console.log("Error with writing file");
+  //   }
+  // });
+
+  //getEmployee();
+//}
 
 //get employees
 const getEmployee = () => {
