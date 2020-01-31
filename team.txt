@@ -40,3 +40,7 @@ dsfblj, sdfhl, Manager, 0, fsbjl
 sdaf, sfkn;, Manager, 0, efjnk
 
 voltron, king of cosmos, Manager, 0, 123
+
+manager, email, Manager, 0, 123
+
+manager, email, Manager, 0, 123

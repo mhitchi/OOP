@@ -147,7 +147,17 @@ const getEmployee = () => {
           "Yes",
           "No"
         ]
+      }).then((response) => {
+        const finished = response.finished;
+
+        if( finished === "No" ) {
+          console.log("Keep building your team");
+          getEmployee();
+        } else {
+          console.log("Checkout your team in team.txt");
+        }
       });
+
   }
 
 
