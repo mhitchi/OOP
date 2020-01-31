@@ -3,12 +3,16 @@
 //dependencies
 const ask = require("./cli.js");
 const fs = require("fs");
+const Employee = require("./lib/employeeClass");
 
-const content = "stuff"
+const content = [Employee.name, Employee.id, Employee.role]
 
-fs.appendFile('team.txt', content, (err) => {
-  if(err) {
-    console.log("Error with writing file");
-  }
-}); 
+const writeFile = () => {
+  fs.appendFile('team.txt', content, (err) => {
+    if(err) {
+      console.log("Error with writing file");
+    }
+  }); 
+}
 
+module.export = writeFile
