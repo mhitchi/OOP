@@ -9,7 +9,7 @@ const Employee = require("./lib/employeeClass");
 const Manager = require("./lib/managerClass");
 const Intern = require("./lib/internClass");
 const Engineer = require("./lib/engineerClass");
-const writeFile = require("./app");
+
 //**Dan: Added this comment for me. Count for assigning ID number */
 let count = 0;
 //ask for manager info first
@@ -58,6 +58,7 @@ const makeMan = (name, title, id, email, officeNum) => {
 
   //writeMan(newMan);
   //call writeFile function from manager class
+  //TODO not working
   newMan.writeToFile()
 
   getEmployee();
@@ -158,10 +159,12 @@ const makeMember = (name, title, email, id, titleInfo) => {
   switch(title) {
       case "engineer":
         newMember = new Engineer(name, title, id, email, titleInfo)
+        //TODO not working
         newMember.appendToFile();
         break;
       case "intern":
         newMember = new Intern(name, title, id, email, titleInfo)
+        //TODO not working
         newMember.appendToFile();
         break;
     }
