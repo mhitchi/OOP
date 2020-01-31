@@ -1,2 +1,24 @@
 [object Object]undefinedundefined, undefined, undefined, undefined, undefinedbeep, 1, Manager, undefined, boop@emailvoltron, voltron@voltron.com, Manager, 1, 123
 Mr. Pickles, mrpick@picks.com, Manager, 1, 123
+
+Martha, mbones@martha.com, Manager, 0, 123
+
+betty boop, betty@boop.org, Manager, 0, 123
+
+cat boi, cat@cats.com, Manager, 0, 123
+
+node cli.js, ohno@gmail.com, Manager, 0, 123
+
+whoops, whoopie@goldberg.com, Manager, 0, 123
+
+killall node, , Manager, 0, 
+
+yikes, zoiks@gmail.com, Manager, 0, 123
+
+manny, mcmanager@gmail.com, Manager, 0, 123
+
+mama, mama@gmail.com, Manager, 0, 123
+
+King Of Oo, koo@kingofoo.com, Manager, 0, 123
+
+wfpi, aeffsdn, Manager, 0, wero
