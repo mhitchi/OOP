@@ -2,12 +2,21 @@ Team:
 
       ****************************
 
-      manager: Gandalf 
+      Manager: Whatsit 
 
-      ID: Manager 
+      ID: 0 
 
-      Email: 0 
+      Email: whatsit@gmail.com 
 
       Office Number: 123
+
+      ----------------------------
+Engineer: Whosit 
+
+      ID: engineer 
+
+      Email: 1 
+
+      School: undefined
 
       ----------------------------

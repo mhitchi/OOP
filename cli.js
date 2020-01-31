@@ -1,8 +1,6 @@
 //** TODO:*/
 //** Make sure manager's E-mail is being generated */
-//** Create prompt for adding additional roles */
-//** Confirm constructors are creating objects properly for additional employees */
-//** Output to text file (format output so it is legible) */
+
 //dependencies
 //use inquirer to ask questions
 const inquirer = require("inquirer");
@@ -17,8 +15,8 @@ let count = 0;
 //ask for manager info first
 //make new manager object
 //put manager info in txt file
-//ask for team member role, name, id
-//switch based on role, ask for role info
+//ask for team member title, name, id
+//switch based on title, ask for title info
 //make intern or engineer object
 //put into txt file
 //ask if done
@@ -44,19 +42,19 @@ const getManager = () => {
     ]).then((response) => {
       //return manager info
       let name = response.name;
-      let role = "Manager";
+      let title = "Manager";
       let email = response.email;
       let id = count;
       let officeNum = response.officeNum;
-      makeMan(name, role, id, email, officeNum);
+      makeMan(name, title, id, email, officeNum);
     });
 }
 
-const makeMan = (name, role, id, email, officeNum) => {
+const makeMan = (name, title, id, email, officeNum) => {
   //make new manager obj
-  const newMan = new Manager(name, role, id, email, officeNum);
+  const newMan = new Manager(name, title, id, email, officeNum);
 
-  console.log(newMan.name, newMan.role, newMan.id, newMan.email, newMan.officeNum)
+  // console.log(newMan.name, newMan.title, newMan.id, newMan.email, newMan.officeNum)
 
   //writeMan(newMan);
   //call writeFile function from manager class
@@ -64,18 +62,6 @@ const makeMan = (name, role, id, email, officeNum) => {
 
   getEmployee();
 }
-// writeFile();
-//TODO STOPPED WORKING
-//const writeMan = (newMan) => {
-  // console.log("writeMan: " + newMan.name);
-  // fs.appendFile("team.txt", (`\r\n${newMan.name}, ${newMan.role}, ${newMan.id}, ${newMan.email}, ${newMan.officeNum}\r\n`), (err) => {
-  //   if(err) {
-  //     console.log("Error with writing file");
-  //   }
-  // });
-
-  //getEmployee();
-//}
 
 //get employees
 const getEmployee = () => {
@@ -92,8 +78,8 @@ const getEmployee = () => {
     },
     {
       type:"list",
-      message: "Pick team member's role: ",
-      name: "role",
+      message: "Pick team member's title: ",
+      name: "title",
       choices: [
         "engineer",
         "intern"
@@ -102,47 +88,46 @@ const getEmployee = () => {
   ]).then((response) => {
     //return manager info
     let name = response.name;
-    let role = response.role;
-    let email = response.email;
+    let title = response.title;
     count++;
     let id = count;
+    let email = response.email;
 
-    getRoleInfo(name, role, email, id);
+    getTitleInfo(name, title, id, email);
 
   });
 
-  //get info based on role
-  //get info based on role
-  const getRoleInfo = (name, role, email, id) => {
-    switch(role) {
+  //get info based on title
+  //get info based on title
+  const getTitleInfo = (name, title, id, email) => {
+    switch(title) {
       case "engineer":
-        ask("Github url");
+        ask(name, title, id, email, "Github url");
         break;
       case "intern":
-        ask("school");
+        ask(name, title, id, email, "school");
         break;
     }
   }
 
   //engineer or intern inquirer questions
-  const ask = (infoType) => {
+  const ask = (name, title, id, email, infoType) => {
     inquirer.prompt(
       {
       type:"input",
       message: `Enter your ${infoType}: `,
-      name: "roleInfo"
+      name: "titleInfo"
       }).then((response) => {
-        let roleInfo = response.roleInfo;
+        let titleInfo = response.titleInfo;
         //TODO add shit to txt file
 
-        //console.log (name, role, id, email, roleInfo);
-        askIfDone();
+        //console.log (name, title, id, email, titleInfo);
+        askIfDone(name, title, id, email, titleInfo);
     });
   }
 
     //ask if they're done building the team yet
-      //TODO not asking
-  const askIfDone = () => {
+  const askIfDone = (name, title, id, email, titleInfo) => {
     inquirer.prompt(
       {
         type: "list",
@@ -162,12 +147,24 @@ const getEmployee = () => {
           console.log("Checkout your team in team.txt");
         }
       });
-
+    makeMember(name, title, email, id, titleInfo)
   }
+}
 
+//make engineer or intern
+const makeMember = (name, title, email, id, titleInfo) => {
+  let newMember;
 
-    //make employee or intern
-
+  switch(title) {
+      case "engineer":
+        newMember = new Engineer(name, title, id, email, titleInfo)
+        newMember.appendToFile();
+        break;
+      case "intern":
+        newMember = new Intern(name, title, id, email, titleInfo)
+        newMember.appendToFile();
+        break;
+    }
 }
 
 // start program and get Manager information
