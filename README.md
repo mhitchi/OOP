@@ -22,7 +22,5 @@ team consists of a manager, and any number of engineers and interns.
 Generate a `team.txt` file in the `output` directory displaying name, role, id, role-specific property
 
 ![screen01](/images/screen01.png)
-Format: ![Alt Text](url)
 
 ![screen02](/images/screen02.png)
-Format: ![Alt Text](url)
